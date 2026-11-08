@@ -1,1 +1,109 @@
 
+{
+  "ferramentas": [
+    {
+      "nome": "consultar_ativo",
+      "descricao": "[Explicar o que a ferramenta consulta e quais informações retorna sobre uma câmera CFTV.]",
+      "parametros": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "[Explicar que a TAG identifica o equipamento a ser consultado.]"
+          }
+        },
+        "required": ["tag"]
+      },
+      "comportamento_em_falha": "[Explicar o que acontece se a TAG não existir ou a consulta falhar.]"
+    },
+    {
+      "nome": "consultar_historico_falhas",
+      "descricao": "[Explicar como a ferramenta consultaria o histórico de falhas de um equipamento.]",
+      "parametros": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "[Explicar a finalidade da TAG.]"
+          },
+          "janela_meses": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "[Explicar que este parâmetro define o período da consulta em meses.]"
+          },
+          "tipo_falha": {
+            "type": "string",
+            "description": "[Explicar como o tipo de falha poderá ser utilizado para filtrar os registros.]"
+          }
+        },
+        "required": ["tag", "janela_meses"]
+      },
+      "comportamento_em_falha": "[Explicar o que acontece quando não existem registros ou a consulta falha.]"
+    },
+    {
+      "nome": "abrir_ordem_servico",
+      "descricao": "[Explicar como seria simulada a abertura de uma ordem de serviço para manutenção.]",
+      "parametros": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "[Explicar qual equipamento receberia a ordem de serviço.]"
+          },
+          "tipo_intervencao": {
+            "type": "string",
+            "description": "[Explicar qual tipo de manutenção seria solicitado.]"
+          },
+          "prioridade": {
+            "type": "string",
+            "enum": ["baixa", "media", "alta", "critica"],
+            "description": "[Explicar como a prioridade seria informada.]"
+          },
+          "descricao": {
+            "type": "string",
+            "description": "[Explicar quais detalhes do problema seriam registrados.]"
+          },
+          "janela_inicio": {
+            "type": "string",
+            "format": "date-time",
+            "description": "[Explicar a data e o horário previstos para o início.]"
+          },
+          "janela_fim": {
+            "type": "string",
+            "format": "date-time",
+            "description": "[Explicar a data e o horário previstos para o término.]"
+          }
+        },
+        "required": [
+          "tag",
+          "tipo_intervencao",
+          "prioridade",
+          "descricao",
+          "janela_inicio",
+          "janela_fim"
+        ]
+      },
+      "comportamento_em_falha": "[Explicar o que acontece se faltarem informações ou a solicitação não puder ser registrada.]"
+    },
+    {
+      "nome": "consultar_procedimento",
+      "descricao": "[Explicar como a ferramenta localizaria procedimentos de manutenção.]",
+      "parametros": {
+        "type": "object",
+        "properties": {
+          "tipo_ativo": {
+            "type": "string",
+            "description": "[Explicar qual tipo de equipamento será consultado.]"
+          },
+          "tipo_intervencao": {
+            "type": "string",
+            "description": "[Explicar qual procedimento de manutenção será procurado.]"
+          }
+        },
+        "required": ["tipo_ativo", "tipo_intervencao"]
+      },
+      "comportamento_em_falha": "[Explicar o que acontece se nenhum procedimento for encontrado.]"
+    }
+  ]
+}
+
