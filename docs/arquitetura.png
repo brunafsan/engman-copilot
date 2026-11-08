@@ -1,1 +1,77 @@
 
+## Arquitetura da solução — Fluxograma
+
+**Arquivo de entrega:** `docs/arquitetura.png`
+
+[Responsável: Rafael.]
+
+### Objetivo
+
+[Criar um fluxograma mostrando como o EngMan Copilot receberá uma pergunta do engenheiro de manutenção, consultará as informações necessárias e apresentará uma resposta.]
+
+### Como criar o fluxograma
+
+1. Acessar https://app.diagrams.net/.
+2. Selecionar "Device" para salvar o desenho no computador.
+3. Criar um diagrama em branco.
+4. Inserir formas para representar as etapas do sistema.
+5. Conectar as formas utilizando setas para mostrar o caminho das informações.
+6. Representar os oito blocos descritos abaixo.
+7. Mostrar os caminhos de decisão e o retorno das informações consultadas.
+8. Exportar o desenho em formato PNG.
+
+### Blocos obrigatórios
+
+**Bloco 1 — Entrada do usuário**
+
+[Representar a pergunta enviada pelo engenheiro de manutenção.]
+
+**Bloco 2 — Guardrail de entrada**
+
+[Representar a verificação da pergunta para identificar solicitações inadequadas, perigosas ou fora do escopo.]
+
+**Bloco 3 — Montagem do contexto**
+
+[Representar a reunião das informações necessárias para responder: system prompt, histórico da conversa, base de conhecimento (RAG) e ferramentas disponíveis.]
+
+**Bloco 4 — Chamada ao LLM**
+
+[Representar o envio das informações ao modelo de linguagem, incluindo os parâmetros utilizados.]
+
+**Bloco 5 — Decisão sobre consultas**
+
+[Representar a decisão sobre a necessidade de consultar a base de conhecimento ou utilizar alguma ferramenta.]
+
+**Bloco 6 — Execução das ferramentas**
+
+[Representar a consulta às ferramentas ou documentos e o retorno dos resultados ao assistente.]
+
+**Bloco 7 — Guardrail de saída**
+
+[Representar a verificação da resposta para evitar informações inventadas, exposição de dados e orientações inseguras.]
+
+**Bloco 8 — Resposta final e histórico**
+
+[Representar a resposta enviada ao engenheiro de manutenção e a atualização do histórico da conversa.]
+
+### Como entregar no GitHub
+
+1. No diagrams.net, clicar em "File".
+2. Selecionar "Export as" e depois "PNG".
+3. Salvar a imagem com o nome `arquitetura.png`.
+4. Entrar no repositório do GitHub.
+5. Abrir a pasta `docs`.
+6. Enviar a imagem para essa pasta, substituindo o arquivo anterior, caso necessário.
+7. Conferir se a imagem aparece corretamente no GitHub.
+8. Salvar a alteração com um commit.
+
+### Conferência final
+
+[Verificar se o fluxograma contém os oito blocos obrigatórios.]
+
+[Conferir se as setas mostram corretamente o fluxo das informações e as decisões.]
+
+[Conferir se o desenho está relacionado ao EngMan Copilot e ao trabalho do engenheiro de manutenção.]
+
+[Verificar se o arquivo final está salvo como `docs/arquitetura.png`.]
+
