@@ -3,19 +3,23 @@
 
 ## Objetivo da base de conhecimento
 
-[Explicar para que servirá a base de conhecimento e como os documentos ajudarão o assistente a responder às perguntas do engenheiro de manutenção.]
+A base de conhecimento do EngMan Copilot terá como finalidade reunir e organizar informações técnicas sobre câmeras de CFTV utilizadas no monitoramento rodoviário. Por meio desses documentos, o assistente poderá consultar características dos equipamentos, históricos de falhas, procedimentos de manutenção e critérios de criticidade, auxiliando o engenheiro de manutenção na análise de problemas e na tomada de decisões fundamentadas nas informações disponíveis.
 
 ## Documentos planejados
 
-[Especificar no mínimo 8 documentos que fariam parte da base de conhecimento.]
-
-[Para cada documento, informar nome, descrição, campos e origem.]
+A base de conhecimento do EngMan Copilot contará com
+oito documentos planejados, voltados à identificação,
+ao diagnóstico de falhas e à manutenção das câmeras
+CFTV. Cada documento será apresentado com seu nome,
+descrição, principais campos e origem, permitindo
+compreender quais informações poderão ser utilizadas
+pelo assistente.
 
 ### Documento 1
 
-**Nome:** [Informar o nome do documento.]
+**Nome:** Catálogo de ativos CFTV
 
-**Descrição:** [Explicar para que servirá o documento e quais informações ele conterá.]
+**Descrição:** Documento destinado ao cadastro e à identificação das câmeras CFTV, reunindo informações técnicas e de localização dos equipamentos. Permitirá que o engenheiro de manutenção consulte as características de cada câmera para auxiliar na análise de falhas e no planejamento das atividades de manutenção.
 
 **Campos:** [Listar os dados presentes no documento, como TAG, modelo, localização ou tipo de falha, conforme sua finalidade.]
 
