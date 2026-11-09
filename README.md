@@ -29,19 +29,19 @@ O grupo optou por esse recorte por considerar interessante trabalhar com a ident
 
 O EngMan Copilot será um assistente de inteligência artificial voltado ao apoio dos engenheiros de manutenção da Motiva no diagnóstico de falhas em câmeras de CFTV. Para isso, terá as seguintes funcionalidades:
 
-Consulta de equipamentos: acesso a informações como identificação (TAG), modelo, localização e criticidade das câmeras.
+-Consulta de equipamentos: acesso a informações como identificação (TAG), modelo, localização e criticidade das câmeras.
 
-Histórico de falhas: consulta a registros de ocorrências anteriores e manutenções realizadas, permitindo identificar problemas recorrentes.
+-Histórico de falhas: consulta a registros de ocorrências anteriores e manutenções realizadas, permitindo identificar problemas recorrentes.
 
-Apoio ao diagnóstico: apresentação de possíveis causas para as falhas relatadas, com base nos registros e documentos técnicos disponíveis.
+-Apoio ao diagnóstico: apresentação de possíveis causas para as falhas relatadas, com base nos registros e documentos técnicos disponíveis.
 
-Consulta de procedimentos: acesso a orientações técnicas de inspeção e manutenção dos equipamentos.
+-Consulta de procedimentos: acesso a orientações técnicas de inspeção e manutenção dos equipamentos.
 
-Avaliação de criticidade: apoio na análise da gravidade das falhas e na definição das prioridades de atendimento.
+-Avaliação de criticidade: apoio na análise da gravidade das falhas e na definição das prioridades de atendimento.
 
-Recomendação de manutenção: indicação de possíveis intervenções, como manutenção corretiva, preventiva ou inspeção.
+-Recomendação de manutenção: indicação de possíveis intervenções, como manutenção corretiva, preventiva ou inspeção.
 
-Ordens de serviço: organização das informações necessárias e solicitação de abertura simulada de uma ordem de serviço, mediante confirmação do engenheiro.
+-Ordens de serviço: organização das informações necessárias e solicitação de abertura simulada de uma ordem de serviço, mediante confirmação do engenheiro.
 
 
 O assistente poderá responder a perguntas relacionadas ao funcionamento das câmeras de CFTV, aos sintomas de falhas, às possíveis causas dos problemas e às intervenções de manutenção. Por exemplo, o engenheiro poderá perguntar se determinada câmera apresenta um histórico de falhas recorrentes, quais fatores podem causar perda de imagem ou quais procedimentos são recomendados para investigar uma falha de comunicação.
@@ -53,17 +53,17 @@ Para elaborar suas respostas, o EngMan Copilot consultará informações dispon�
 
 O EngMan Copilot terá sua atuação limitada ao apoio técnico no diagnóstico e na manutenção de câmeras de CFTV. Dessa forma, não poderá:
 
-Analisar imagens ou vídeos: identificar automaticamente problemas visuais nas câmeras, como lentes sujas ou imagens desfocadas.
+-Analisar imagens ou vídeos: identificar automaticamente problemas visuais nas câmeras, como lentes sujas ou imagens desfocadas.
 
-Controlar equipamentos: acessar câmeras remotamente para alterar configurações, reiniciar sistemas ou executar reparos.
+-Controlar equipamentos: acessar câmeras remotamente para alterar configurações, reiniciar sistemas ou executar reparos.
 
-Realizar intervenções: executar atividades de manutenção ou substituir a atuação dos profissionais responsáveis.
+-Realizar intervenções: executar atividades de manutenção ou substituir a atuação dos profissionais responsáveis.
 
-Emitir laudos técnicos: produzir diagnósticos definitivos, pareceres ou documentos que exijam responsabilidade técnica de um profissional habilitado.
+-Emitir laudos técnicos: produzir diagnósticos definitivos, pareceres ou documentos que exijam responsabilidade técnica de um profissional habilitado.
 
-Inventar informações: apresentar dados de equipamentos, históricos de falhas ou procedimentos que não estejam disponíveis nas fontes consultadas.
+-Inventar informações: apresentar dados de equipamentos, históricos de falhas ou procedimentos que não estejam disponíveis nas fontes consultadas.
 
-Atuar fora do escopo: responder a solicitações que não estejam relacionadas à manutenção das câmeras de CFTV.
+-Atuar fora do escopo: responder a solicitações que não estejam relacionadas à manutenção das câmeras de CFTV.
 
 
 O EngMan Copilot deverá recusar solicitações fora de seu escopo, pedidos de acesso ou divulgação não autorizada de informações confidenciais e dados pessoais, além de orientações que contrariem os procedimentos oficiais de segurança. Caso não encontre informações suficientes para responder a uma pergunta, deverá informar essa limitação e, quando necessário, solicitar dados adicionais, sem inventar informações.
