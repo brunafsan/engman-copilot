@@ -1,77 +1,90 @@
-
 {
   "ferramentas": [
     {
       "nome": "consultar_ativo",
-      "descricao": "[Explicar o que a ferramenta consulta e quais informações retorna sobre uma câmera CFTV.]",
+      "descricao": "Consulta a ficha simulada de uma câmera CFTV a partir da TAG, com base nos documentos 'Catálogo de ativos CFTV' e 'Matriz de criticidade das câmeras CFTV'. Retorna modelo, fabricante, localização (rodovia e km), data de instalação, status atual e criticidade do equipamento.",
       "parametros": {
         "type": "object",
         "properties": {
           "tag": {
             "type": "string",
-            "description": "[Explicar que a TAG identifica o equipamento a ser consultado.]"
+            "description": "Código que identifica a câmera na base simulada, no formato CFTV-000 (exemplo: CFTV-001)."
           }
         },
         "required": ["tag"]
       },
-      "comportamento_em_falha": "[Explicar o que acontece se a TAG não existir ou a consulta falhar.]"
+      "comportamento_em_falha": "Se a TAG não existir na base simulada, a ferramenta retorna 'ativo não encontrado' e o assistente informa isso ao engenheiro, pedindo para conferir o código, sem inventar dados. Se a consulta falhar por erro técnico, o assistente informa que não conseguiu acessar os dados no momento."
     },
     {
       "nome": "consultar_historico_falhas",
-      "descricao": "[Explicar como a ferramenta consultaria o histórico de falhas de um equipamento.]",
+      "descricao": "Consulta o documento simulado 'Histórico de falhas do FSM — Câmeras CFTV' para uma câmera em um período. Retorna a lista de ocorrências com data, tipo de falha, causa registrada, intervenção realizada e tempo de reparo, permitindo identificar problemas recorrentes.",
       "parametros": {
         "type": "object",
         "properties": {
           "tag": {
             "type": "string",
-            "description": "[Explicar a finalidade da TAG.]"
+            "description": "Código da câmera consultada, no formato CFTV-000 (exemplo: CFTV-001)."
           },
           "janela_meses": {
             "type": "integer",
             "minimum": 1,
-            "description": "[Explicar que este parâmetro define o período da consulta em meses.]"
+            "maximum": 60,
+            "description": "Período da consulta em meses, contado a partir da data atual (exemplo: 6 retorna as ocorrências dos últimos 6 meses). Limitado a 60 meses."
           },
           "tipo_falha": {
             "type": "string",
-            "description": "[Explicar como o tipo de falha poderá ser utilizado para filtrar os registros.]"
+            "enum": [
+              "perda_de_imagem",
+              "imagem_desfocada",
+              "lente_suja_ou_obstruida",
+              "falha_de_comunicacao",
+              "falha_de_energia",
+              "dano_fisico"
+            ],
+            "description": "Filtro opcional para retornar apenas um tipo de falha. Se não for informado, retorna todas as ocorrências do período."
           }
         },
         "required": ["tag", "janela_meses"]
       },
-      "comportamento_em_falha": "[Explicar o que acontece quando não existem registros ou a consulta falha.]"
+      "comportamento_em_falha": "Se a TAG não existir, retorna 'ativo não encontrado'. Se não houver ocorrências no período, retorna uma lista vazia e o assistente informa que não encontrou registros, sem inventar histórico. Se a consulta falhar por erro técnico, o assistente informa que não conseguiu acessar os dados."
     },
     {
       "nome": "abrir_ordem_servico",
-      "descricao": "[Explicar como seria simulada a abertura de uma ordem de serviço para manutenção.]",
+      "descricao": "Simula a abertura de uma ordem de serviço (OS) de manutenção para uma câmera CFTV. Não registra nada em sistemas reais da Motiva. Só pode ser chamada depois que o assistente apresentar o resumo da OS e o engenheiro confirmar explicitamente. Retorna um número de OS simulado e o resumo do que foi registrado.",
       "parametros": {
         "type": "object",
         "properties": {
           "tag": {
             "type": "string",
-            "description": "[Explicar qual equipamento receberia a ordem de serviço.]"
+            "description": "Código da câmera que receberá a manutenção, no formato CFTV-000 (exemplo: CFTV-001)."
           },
           "tipo_intervencao": {
             "type": "string",
-            "description": "[Explicar qual tipo de manutenção seria solicitado.]"
+            "enum": ["inspecao", "preventiva", "corretiva"],
+            "description": "Tipo de manutenção solicitada: inspecao (verificação no local), preventiva (limpeza, ajuste ou troca programada) ou corretiva (reparo de uma falha já ocorrida)."
           },
           "prioridade": {
             "type": "string",
             "enum": ["baixa", "media", "alta", "critica"],
-            "description": "[Explicar como a prioridade seria informada.]"
+            "description": "Urgência do atendimento, definida pelo engenheiro com base na criticidade documentada da câmera e no impacto da falha."
           },
           "descricao": {
             "type": "string",
-            "description": "[Explicar quais detalhes do problema seriam registrados.]"
+            "description": "Resumo do problema: sintoma observado, histórico relevante e hipóteses levantadas, indicando o que é fato documentado e o que é hipótese."
           },
           "janela_inicio": {
             "type": "string",
             "format": "date-time",
-            "description": "[Explicar a data e o horário previstos para o início.]"
+            "description": "Data e horário previstos para o início da intervenção (exemplo: 2026-11-20T08:00:00)."
           },
           "janela_fim": {
             "type": "string",
             "format": "date-time",
-            "description": "[Explicar a data e o horário previstos para o término.]"
+            "description": "Data e horário previstos para o término da intervenção. Deve ser posterior à janela_inicio."
+          },
+          "confirmado_pelo_engenheiro": {
+            "type": "boolean",
+            "description": "Indica se o engenheiro confirmou a abertura da OS após revisar o resumo. A OS simulada só é aberta quando o valor é true."
           }
         },
         "required": [
@@ -80,30 +93,32 @@
           "prioridade",
           "descricao",
           "janela_inicio",
-          "janela_fim"
+          "janela_fim",
+          "confirmado_pelo_engenheiro"
         ]
       },
-      "comportamento_em_falha": "[Explicar o que acontece se faltarem informações ou a solicitação não puder ser registrada.]"
+      "comportamento_em_falha": "Se faltar algum campo obrigatório, o assistente pede a informação ao engenheiro em vez de supor. Se confirmado_pelo_engenheiro for false, a OS não é aberta. Se a TAG não existir ou a janela_fim for anterior à janela_inicio, a solicitação é recusada com a explicação do erro. Em qualquer falha, o assistente informa que a OS simulada não foi registrada."
     },
     {
       "nome": "consultar_procedimento",
-      "descricao": "[Explicar como a ferramenta localizaria procedimentos de manutenção.]",
+      "descricao": "Consulta o documento simulado 'Procedimentos Operacionais (POPs) — Câmeras CFTV' e retorna o procedimento aplicável ao tipo de equipamento e de intervenção: nome do procedimento, objetivo, pré-requisitos de segurança, materiais necessários, etapas de execução e verificações finais.",
       "parametros": {
         "type": "object",
         "properties": {
           "tipo_ativo": {
             "type": "string",
-            "description": "[Explicar qual tipo de equipamento será consultado.]"
+            "enum": ["camera_cftv"],
+            "description": "Tipo de equipamento. Nesta versão, o escopo do EngMan Copilot é limitado a câmeras CFTV."
           },
           "tipo_intervencao": {
             "type": "string",
-            "description": "[Explicar qual procedimento de manutenção será procurado.]"
+            "enum": ["inspecao", "preventiva", "corretiva"],
+            "description": "Tipo de manutenção para a qual o procedimento é procurado: inspecao, preventiva ou corretiva."
           }
         },
         "required": ["tipo_ativo", "tipo_intervencao"]
       },
-      "comportamento_em_falha": "[Explicar o que acontece se nenhum procedimento for encontrado.]"
+      "comportamento_em_falha": "Se nenhum procedimento for encontrado, o assistente informa que não há procedimento documentado para aquele caso e orienta o engenheiro a seguir as normas oficiais de segurança e consultar o responsável técnico, sem criar um procedimento próprio."
     }
   ]
 }
-
