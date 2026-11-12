@@ -74,7 +74,7 @@ As recomendações fornecidas pelo sistema, incluindo possíveis causas de falha
 
 ### Fluxograma
 
-[Inserir o fluxograma da arquitetura disponível em docs/arquitetura.png.]
+![Fluxograma da arquitetura do EngMan Copilot](docs/arquitetura.png)
 
 ### Funcionamento da arquitetura
 
