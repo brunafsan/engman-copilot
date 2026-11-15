@@ -3,9 +3,8 @@
 
 ## Identificação dos riscos
 
-[Identificar pelo menos 8 riscos relacionados ao funcionamento do assistente de IA.]
-
-[Para cada risco, explicar o que pode acontecer, qual seria o impacto e como o problema poderá ser evitado ou reduzido.]
+O EngMan Copilot é um assistente de inteligência artificial proposto para apoiar engenheiros de manutenção na análise de falhas em câmeras de CFTV. Embora possa auxiliar na consulta de informações técnicas e na identificação de possíveis causas de problemas, sua utilização apresenta riscos que precisam ser considerados.
+Foram identificados oito riscos relacionados à confiabilidade das respostas, à segurança operacional, à proteção de dados e ao funcionamento do assistente. Para cada risco, serão apresentados os possíveis impactos, as medidas de prevenção e os componentes do projeto nos quais essas medidas estão previstas.
 
 ## Risco 1 — Alucinação da IA
 
