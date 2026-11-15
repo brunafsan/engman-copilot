@@ -70,9 +70,14 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 
 ## Risco 7 — Excesso de confiança
 
-[Explicar o risco de o assistente apresentar conclusões com certeza maior do que as evidências permitem.]
+**Descrição do risco:** O EngMan Copilot poderá apresentar hipóteses sobre falhas em câmeras CFTV como se fossem diagnósticos confirmados, demonstrando um nível de certeza maior do que as informações disponíveis permitem.
 
-[Descrever o impacto e a medida de prevenção.]
+**Impacto:** O engenheiro poderá confiar excessivamente nas conclusões do assistente, ocasionando diagnósticos incorretos, substituições desnecessárias de componentes e decisões de manutenção inadequadas.
+
+**Medida de prevenção:** O assistente deverá diferenciar fatos documentados de hipóteses, indicar as fontes utilizadas e comunicar seu nível de confiança de acordo com as evidências disponíveis. Quando não houver informações suficientes para confirmar uma causa, deverá informar essa limitação e recomendar a avaliação do engenheiro, sem apresentar conclusões definitivas.
+
+**Onde a proteção aparecerá:** Nos blocos REGRAS e FORMATO do system_prompt.md, no guardrail de saída da arquitetura (bloco 7) e nos casos de teste C02 (factual) e C05 (ambíguo) do sprint1_eval_set.json, que verificam a diferenciação entre informações documentadas e possíveis causas, além do reconhecimento de informações insuficientes.
+
 
 ## Risco 8 — Limite de contexto
 
