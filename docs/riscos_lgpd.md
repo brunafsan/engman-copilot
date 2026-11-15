@@ -31,9 +31,11 @@ Onde a proteção aparecerá: Nos blocos REGRAS e BORDA do system_prompt.md, nos
 
 ## Risco 4 — Viés na priorização
 
-[Explicar o risco de o assistente priorizar incorretamente determinados equipamentos ou falhas.]
-
-[Descrever o impacto e a medida de prevenção.]
+Risco 4 — Viés na Priorização
+Descrição do risco: O EngMan Copilot poderá priorizar incorretamente a manutenção das câmeras CFTV, utilizando critérios inconsistentes ou desconsiderando informações importantes sobre a criticidade dos equipamentos.
+Impacto: Equipamentos com maior impacto na segurança viária, na arrecadação ou na disponibilidade dos serviços poderão receber menor prioridade, provocando atrasos em manutenções importantes e comprometendo a eficiência das operações.
+Medida de prevenção: O assistente deverá consultar a matriz de criticidade prevista na base de conhecimento, considerando os impactos na segurança viária, na arrecadação e na disponibilidade dos serviços. As recomendações deverão apresentar os critérios utilizados e ser submetidas à avaliação do engenheiro de manutenção. Na ausência de informações suficientes, o assistente não deverá definir uma prioridade como definitiva.
+Onde a proteção aparecerá: Nos blocos REGRAS e FORMATO do system prompt.md, na montagem do contexto com documentos recuperados pelo RAG (bloco 3 da arquitetura), na matriz de criticidade prevista no inventario.md e no teste factual C01 do sprint1_eval_set.json, que verifica a consulta correta às informações de criticidade dos equipamentos.
 
 ## Risco 5 — LGPD e dados pessoais
 
