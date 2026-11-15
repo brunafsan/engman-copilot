@@ -8,9 +8,10 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 
 ## Risco 1 — Alucinação da IA
 
-[Explicar o risco de o assistente apresentar informações inventadas como se fossem verdadeiras.]
-
-[Descrever o impacto e a medida de prevenção.]
+Descrição do risco: O EngMan Copilot poderá apresentar informações incorretas ou inexistentes como se fossem verdadeiras, como inventar históricos de falhas, características de equipamentos ou diagnósticos sem comprovação nos documentos consultados.
+Impacto: O engenheiro poderá tomar decisões com base em informações falsas, resultando em diagnósticos incorretos, manutenções desnecessárias, aumento de custos e atrasos na resolução dos problemas.
+Medida de prevenção: O assistente deverá fundamentar suas respostas nos documentos disponíveis, identificar as fontes consultadas e distinguir informações comprovadas de hipóteses. Quando não houver dados suficientes, deverá informar essa limitação, sem inventar registros ou diagnósticos.
+Onde a proteção aparecerá: No bloco REGRAS do system_prompt.md, no guardrail de saída da arquitetura, responsável por verificar as respostas, e nos casos de teste da categoria dado_inexistente do sprint1_eval_set.json.
 
 ## Risco 2 — Prompt Injection
 
