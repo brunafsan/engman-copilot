@@ -15,9 +15,11 @@ Onde a proteção aparecerá: No bloco REGRAS do system_prompt.md, no guardrail 
 
 ## Risco 2 — Prompt Injection
 
-[Explicar o risco de instruções maliciosas tentarem alterar o comportamento do assistente.]
-
-[Descrever o impacto e a medida de prevenção.]
+Risco 2 — Injeção de Prompt
+Descrição do risco: O EngMan Copilot poderá receber instruções maliciosas em perguntas ou documentos consultados, tentando modificar seu comportamento e fazê-lo desrespeitar as regras estabelecidas, como revelar informações confidenciais, expor instruções internas do sistema ou fornecer orientações proibidas.
+Impacto: O assistente poderá apresentar respostas fora do escopo do projeto, divulgar informações não autorizadas ou fornecer recomendações inadequadas, comprometendo a segurança e a confiabilidade do sistema.
+Medida de prevenção: O assistente deverá seguir as regras definidas no system prompt, sem aceitar instruções externas que tentem modificá-las. As informações recuperadas dos documentos deverão ser tratadas como dados de consulta, e não como novas instruções. Também serão previstas verificações nas entradas e saídas para identificar tentativas de manipulação e reduzir o risco de descumprimento das regras.
+Onde a proteção aparecerá: Nos blocos REGRAS e BORDA do system_prompt.md, nos guardrails de entrada e saída da arquitetura e nos casos de teste da categoria jailbreak do sprint1_eval_set.json, destinados a avaliar tentativas de contornar as regras do assistente.
 
 ## Risco 3 — Segurança operacional
 
