@@ -19,29 +19,41 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 ## Risco 2 — Prompt Injection
 
 **Descrição do risco:** O EngMan Copilot poderá receber instruções maliciosas em perguntas ou documentos consultados, tentando modificar seu comportamento e fazê-lo desrespeitar as regras estabelecidas, como revelar informações confidenciais, expor instruções internas do sistema ou fornecer orientações proibidas.
+
 **Impacto:** O assistente poderá apresentar respostas fora do escopo do projeto, divulgar informações não autorizadas ou fornecer recomendações inadequadas, comprometendo a segurança e a confiabilidade do sistema.
+
 **Medida de prevenção:** O assistente deverá seguir as regras definidas no system prompt, sem aceitar instruções externas que tentem modificá-las. As informações recuperadas dos documentos deverão ser tratadas como dados de consulta, e não como novas instruções. Também serão previstas verificações nas entradas e saídas para identificar tentativas de manipulação e reduzir o risco de descumprimento das regras.
+
 **Onde a proteção aparecerá:** Nos blocos REGRAS e BORDA do system_prompt.md, nos guardrails de entrada e saída da arquitetura e nos casos de teste da categoria jailbreak do sprint1_eval_set.json, destinados a avaliar tentativas de contornar as regras do assistente.
 
 ## Risco 3 — Segurança operacional
 
 **Descrição do risco:** O EngMan Copilot poderá recomendar procedimentos inadequados ou inseguros para a manutenção das câmeras CFTV, sem considerar os riscos envolvidos em atividades como intervenções elétricas, trabalhos em altura e serviços realizados em rodovias.
+
 **Impacto:** A execução dessas recomendações poderá provocar acidentes de trabalho, danos aos equipamentos e interrupções no funcionamento das câmeras, comprometendo a segurança dos profissionais e a disponibilidade do sistema de monitoramento.
+
 **Medida de prevenção:** O assistente deverá utilizar os procedimentos técnicos disponíveis como referência, respeitando os requisitos de segurança aplicáveis, como as normas NR-10 e NR-35. Não deverá recomendar intervenções que desconsiderem medidas obrigatórias de segurança e deverá orientar que a execução dos serviços seja avaliada e autorizada por profissionais habilitados, quando exigido.
+
 **Onde a proteção aparecerá:** Nos blocos REGRAS e BORDA do system_prompt.md, nos guardrails de entrada e saída da arquitetura e nos casos de teste da categoria risco_operacional do sprint1_eval_set.json.
 
 ## Risco 4 — Viés na priorização
 
 **Descrição do risco:** O EngMan Copilot poderá priorizar incorretamente a manutenção das câmeras CFTV, utilizando critérios inconsistentes ou desconsiderando informações importantes sobre a criticidade dos equipamentos.
+
 **Impacto:** Equipamentos com maior impacto na segurança viária, na arrecadação ou na disponibilidade dos serviços poderão receber menor prioridade, provocando atrasos em manutenções importantes e comprometendo a eficiência das operações.
+
 **Medida de prevenção:** O assistente deverá consultar a matriz de criticidade prevista na base de conhecimento, considerando os impactos na segurança viária, na arrecadação e na disponibilidade dos serviços. As recomendações deverão apresentar os critérios utilizados e ser submetidas à avaliação do engenheiro de manutenção. Na ausência de informações suficientes, o assistente não deverá definir uma prioridade como definitiva.
+
 **Onde a proteção aparecerá:** Nos blocos REGRAS e FORMATO do system prompt.md, na montagem do contexto com documentos recuperados pelo RAG (bloco 3 da arquitetura), na matriz de criticidade prevista no inventario.md e no teste factual C01 do sprint1_eval_set.json, que verifica a consulta correta às informações de criticidade dos equipamentos.
 
 ## Risco 5 — LGPD e dados pessoais
 
 **Descrição do risco:** O EngMan Copilot poderá receber ou expor dados pessoais desnecessários para a análise de falhas, como informações de funcionários, imagens que permitam identificar pessoas ou placas de veículos, comprometendo a privacidade dos envolvidos.
+
 **Impacto:** O tratamento ou a divulgação inadequada dessas informações poderá violar a privacidade dos titulares, ocasionar exposição indevida de dados e gerar consequências legais para a empresa, incluindo possíveis sanções previstas na LGPD.
+
 **Medida de prevenção:** O assistente deverá evitar o tratamento de dados pessoais desnecessários, utilizando dados fictícios na base de conhecimento acadêmica. Também deverão ser previstas verificações para impedir a inclusão e a exposição indevida dessas informações, respeitando os princípios de necessidade, segurança e prevenção da LGPD.
+
 **Onde a proteção aparecerá:** Nos blocos REGRAS e BORDA do system_prompt.md, nas verificações de entrada e saída previstas na arquitetura (blocos 2 e 7), que deverão contemplar a proteção de dados pessoais, e nas diretrizes de privacidade do inventario.md, que estabelecem restrições aos dados utilizados na base de conhecimento.
 
 
