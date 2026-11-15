@@ -59,9 +59,14 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 
 ## Risco 6 — Confidencialidade
 
-[Explicar o risco de exposição de informações internas ou confidenciais da empresa.]
+**Descrição do risco:** O EngMan Copilot poderá expor informações internas ou confidenciais da Motiva, como históricos de manutenção, registros de falhas, localizações de equipamentos e procedimentos operacionais restritos, caso esses dados sejam utilizados ou divulgados sem autorização.
 
-[Descrever o impacto e a medida de prevenção.]
+**Impacto:** A exposição dessas informações poderá comprometer a segurança das operações, facilitar o uso indevido de informações técnicas e causar prejuízos operacionais e à confidencialidade dos dados da empresa.
+
+**Medida de prevenção:** O projeto deverá utilizar apenas dados simulados ou informações públicas e autorizadas, impedindo a inclusão de documentos internos restritos na base de conhecimento. Em uma futura implementação com dados reais, deverão ser previstos controles de acesso conforme as permissões dos usuários, além de verificações para evitar a divulgação de informações não autorizadas.
+
+**Onde a proteção aparecerá:** Nos blocos REGRAS e BORDA do system_prompt.md, no guardrail de saída da arquitetura (bloco 7), nas verificações de entrada a serem detalhadas (bloco 2) e nas diretrizes de origem e disponibilidade dos documentos do inventario.md.
+
 
 ## Risco 7 — Excesso de confiança
 
