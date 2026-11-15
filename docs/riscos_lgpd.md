@@ -23,9 +23,11 @@ Onde a proteção aparecerá: Nos blocos REGRAS e BORDA do system_prompt.md, nos
 
 ## Risco 3 — Segurança operacional
 
-[Explicar o risco de o assistente sugerir procedimentos inadequados ou inseguros para a manutenção dos equipamentos.]
-
-[Descrever o impacto e a medida de prevenção.]
+Risco 3 — Segurança Operacional
+Descrição do risco: O EngMan Copilot poderá recomendar procedimentos inadequados ou inseguros para a manutenção das câmeras CFTV, sem considerar os riscos envolvidos em atividades como intervenções elétricas, trabalhos em altura e serviços realizados em rodovias.
+Impacto: A execução dessas recomendações poderá provocar acidentes de trabalho, danos aos equipamentos e interrupções no funcionamento das câmeras, comprometendo a segurança dos profissionais e a disponibilidade do sistema de monitoramento.
+Medida de prevenção: O assistente deverá utilizar os procedimentos técnicos disponíveis como referência, respeitando os requisitos de segurança aplicáveis, como as normas NR-10 e NR-35. Não deverá recomendar intervenções que desconsiderem medidas obrigatórias de segurança e deverá orientar que a execução dos serviços seja avaliada e autorizada por profissionais habilitados, quando exigido.
+Onde a proteção aparecerá: Nos blocos REGRAS e BORDA do system_prompt.md, nos guardrails de entrada e saída da arquitetura e nos casos de teste da categoria risco_operacional do sprint1_eval_set.json.
 
 ## Risco 4 — Viés na priorização
 
