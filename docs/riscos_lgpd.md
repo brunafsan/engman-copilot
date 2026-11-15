@@ -81,9 +81,14 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 
 ## Risco 8 — Limite de contexto
 
-[Explicar o risco de informações importantes serem perdidas ou desconsideradas quando houver muito conteúdo na conversa.]
+**Descrição do risco:** O EngMan Copilot poderá perder ou desconsiderar informações importantes durante conversas extensas ou consultas com muitos documentos, causando confusão entre os históricos, as falhas e as identificações (TAGs) de diferentes câmeras CFTV.
 
-[Descrever o impacto e a medida de prevenção.]
+**Impacto:** O assistente poderá apresentar informações incompletas ou associar registros de falhas ao equipamento incorreto, prejudicando a precisão dos diagnósticos e das recomendações de manutenção.
+
+**Medida de prevenção:** O sistema deverá limitar o histórico da conversa e utilizar o mecanismo RAG para recuperar os trechos mais relevantes dos documentos, utilizando filtros por TAG quando possível. O assistente também deverá confirmar a identificação do equipamento quando houver ambiguidade, evitando misturar registros de câmeras diferentes.
+
+**Onde a proteção aparecerá:** Nos blocos REGRAS e BORDA do system_prompt.md, na montagem do contexto e no controle do histórico da conversa (blocos 3 e 8 da arquitetura) e no caso de teste C10, da categoria memoria_contexto, do sprint1_eval_set.json.
+
 
 ## Relação com as medidas de proteção
 
