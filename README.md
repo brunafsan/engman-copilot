@@ -200,9 +200,24 @@ Arquivo: [tools/tools_spec.json](tools/tools_spec.json)
 
 ## Riscos e mitigações
 
-[Resumir os pelo menos 8 riscos identificados no arquivo docs/riscos_lgpd.md.]
+## Riscos, Ética e LGPD
 
-[Explicar o impacto de cada risco e como ele será reduzido por regras do system prompt, verificações da arquitetura ou testes.]
+O EngMan Copilot considera riscos relacionados à confiabilidade das respostas, à segurança operacional e à proteção das informações utilizadas pelo assistente. Para reduzir esses riscos, foram previstas medidas de prevenção nas regras de funcionamento, na arquitetura e nos testes de avaliação.
+
+Os principais riscos identificados são:
+
+- **Alucinação da IA:** geração de informações incorretas ou inexistentes. As respostas deverão ser fundamentadas nos documentos disponíveis, diferenciando fatos de hipóteses.
+- **Prompt Injection:** tentativas de modificar o comportamento do assistente por meio de instruções maliciosas. O sistema deverá seguir suas regras e tratar os documentos consultados como fontes de dados, não como instruções.
+- **Segurança operacional:** recomendações inadequadas para atividades de manutenção. O assistente deverá respeitar os procedimentos técnicos e considerar os requisitos de segurança aplicáveis.
+- **Viés na priorização:** classificação incorreta da urgência de manutenção. As recomendações deverão considerar a matriz de criticidade e os registros disponíveis.
+- **LGPD e dados pessoais:** exposição ou utilização desnecessária de informações pessoais. O projeto utilizará dados simulados ou autorizados, evitando informações pessoais desnecessárias.
+- **Confidencialidade:** divulgação de informações internas ou restritas. A base de conhecimento deverá utilizar apenas dados públicos, simulados ou devidamente autorizados.
+- **Excesso de confiança:** apresentação de hipóteses como diagnósticos confirmados. O assistente deverá indicar suas limitações e diferenciar conclusões fundamentadas de possíveis causas.
+- **Limite de contexto:** perda ou confusão de informações durante conversas extensas. O sistema deverá utilizar recuperação de documentos por RAG, filtros por TAG e controle do histórico da conversa.
+
+As medidas de prevenção serão consideradas no *system prompt*, nos guardrails de entrada e saída e nos casos de teste do assistente. As decisões técnicas continuarão sob responsabilidade do engenheiro de manutenção.
+
+A descrição detalhada dos riscos, seus impactos e as medidas de prevenção está disponível em [Riscos e LGPD](docs/riscos_lgpd.md).
 
 ## Limitações conhecidas
 
