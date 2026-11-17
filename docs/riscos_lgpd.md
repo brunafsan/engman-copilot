@@ -92,7 +92,23 @@ Foram identificados oito riscos relacionados à confiabilidade das respostas, à
 
 ## Relação com as medidas de proteção
 
-[Explicar onde as medidas de prevenção aparecem no projeto: nas regras do system prompt, nos blocos da arquitetura ou nos casos de teste do eval set.]
+As medidas de prevenção dos oito riscos identificados foram distribuídas entre as regras do EngMan Copilot, os mecanismos de proteção previstos na arquitetura, as diretrizes da base de conhecimento e os casos de avaliação. Essa organização busca garantir que os riscos sejam considerados em diferentes etapas do funcionamento do assistente, desde o recebimento das perguntas até a elaboração das respostas.
 
-[Indicar, para cada risco, pelo menos uma medida concreta de proteção e onde ela será documentada.]
+A relação entre cada risco, sua principal medida de prevenção e os componentes responsáveis por aplicá-la está apresentada a seguir.
+
+|Risco | Medida de prevenção | Onde está prevista |
+|---|---|---|
+|1. Alucinação da IA | Fundamentar as respostas nos documentos disponíveis, citar as fontes, diferenciar fatos de hipóteses e reconhecer a ausência de informações. | Blocos REGRAS e FORMATO do system_prompt.md, guardrail de saída (bloco 7 da arquitetura) e testes da categoria dado_inexistente. |
+|2. Prompt Injection | Impedir que instruções maliciosas enviadas pelo usuário ou presentes nos documentos consultados alterem as regras do assistente. | Blocos REGRAS e BORDA do system_prompt.md, guardrails de entrada e saída (blocos 2 e 7 da arquitetura) e testes da categoria jailbreak. |
+|3. Segurança operacional | Recusar orientações inseguras, respeitar os procedimentos documentados e considerar as normas NR-10 e NR-35 quando aplicáveis. | Blocos REGRAS e BORDA do system_prompt.md, guardrails de entrada e saída (blocos 2 e 7 da arquitetura) e testes da categoria risco_operacional. |
+|4. Viés na priorização | Fundamentar as prioridades na matriz de criticidade, considerando os impactos na segurança viária, na arrecadação e na disponibilidade dos serviços. | Blocos REGRAS e FORMATO do system_prompt.md, matriz de criticidade do inventario.md, recuperação de documentos pelo RAG (bloco 3 da arquitetura) e teste C01, que verifica a consulta às informações de criticidade. |
+|5. LGPD e dados pessoais | Evitar a utilização e a exposição de dados pessoais desnecessários, priorizando dados fictícios e informações autorizadas. | Blocos REGRAS e BORDA do system_prompt.md, diretrizes de privacidade do inventario.md, guardrail de saída (bloco 7 da arquitetura) e verificações de proteção de dados a serem detalhadas no guardrail de entrada (bloco 2). |
+|6. Confidencialidade | Restringir a utilização e a divulgação de informações internas não autorizadas, mantendo a base acadêmica composta por dados simulados e fontes públicas ou autorizadas. | Blocos REGRAS e BORDA do system_prompt.md, diretrizes de origem dos documentos do inventario.md, guardrail de saída (bloco 7 da arquitetura), verificações de entrada a serem detalhadas (bloco 2) e escolha de execução local documentada em decisoes_tecnicas.md. |
+|7. Excesso de confiança | Identificar hipóteses, justificar o nível de confiança e informar as limitações das conclusões, mantendo a validação técnica sob responsabilidade do engenheiro. | Blocos REGRAS e FORMATO do system_prompt.md, guardrail de saída (bloco 7 da arquitetura) e testes C02 e C05 do sprint1_eval_set.json. |
+|8. Limite de contexto | Utilizar recuperação de documentos por RAG, filtros por TAG e controle do histórico da conversa para evitar a mistura de informações de câmeras diferentes. | Blocos REGRAS e BORDA do system_prompt.md, montagem do contexto e controle do histórico (blocos 3 e 8 da arquitetura) e teste C10, da categoria memoria_contexto |
+
+
+As medidas descritas são complementares. O system_prompt.md estabelece as instruções que o assistente deverá seguir, enquanto os guardrails previstos na arquitetura atuarão na verificação das solicitações e respostas. A base de conhecimento fornecerá as informações técnicas autorizadas, e o conjunto de avaliação permitirá verificar comportamentos específicos, como reconhecimento de informações inexistentes, recusa de pedidos perigosos e manutenção do contexto da conversa.
+
+Nesta Sprint, as proteções estão definidas em nível de planejamento e documentação. Sua implementação e eficácia dependerão do desenvolvimento e da validação futura do sistema. As recomendações do EngMan Copilot continuarão sendo utilizadas exclusivamente como apoio à decisão, mantendo a responsabilidade técnica com o engenheiro de manutenção.
 
