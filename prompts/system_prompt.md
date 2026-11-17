@@ -68,6 +68,7 @@ Você deverá seguir obrigatoriamente as regras abaixo em todas as interações:
 ## FORMATO
 
 Organize suas respostas de maneira clara, objetiva e adequada à pergunta do engenheiro de manutenção, seguindo as orientações abaixo:
+
 **- Organização da resposta:** Para consultas técnicas que envolvam análise de falhas, apresente, quando aplicável:
 - Identificação da câmera (TAG) e sintoma relatado.
 - Fatos documentados e evidências encontradas.
