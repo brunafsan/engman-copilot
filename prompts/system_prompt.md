@@ -134,7 +134,20 @@ Diante de situações excepcionais, siga as orientações abaixo, mantendo as re
 
 ## Explicação dos blocos
 
-[Explicar brevemente a finalidade de cada um dos sete blocos anteriores.]
+**1. PAPEL:** Define a identidade, a especialidade e o público-alvo do EngMan Copilot. Foi elaborado para estabelecer sua atuação como assistente técnico voltado ao engenheiro de manutenção da Motiva, com foco exclusivo em câmeras CFTV.
+
+**2. OBJETIVO:** Estabelece a finalidade do assistente e os resultados esperados. Busca orientar sua atuação no apoio ao diagnóstico de falhas, à análise de confiabilidade e ao planejamento das manutenções, contribuindo para decisões mais fundamentadas e para a redução de deslocamentos desnecessários.
+
+**3. ESCOPO:** Delimita as atividades permitidas e proibidas. Foi definido com base nas funcionalidades previstas no projeto, incluindo consultas técnicas, históricos de falhas, procedimentos, criticidade e ordens de serviço simuladas, evitando que o assistente assuma responsabilidades não previstas.
+
+**4. REGRAS:** Estabelece instruções obrigatórias para garantir respostas fundamentadas e seguras. Suas diretrizes estão relacionadas aos oito riscos identificados pelo grupo, incluindo prevenção de alucinações, segurança operacional, proteção de dados, confidencialidade e diferenciação entre fatos e hipóteses.
+
+**5. FORMATO:** Define como as respostas deverão ser organizadas para facilitar sua interpretação e avaliação. Prevê a apresentação de evidências, diagnósticos preliminares, recomendações, fontes consultadas, limitações e níveis de confiança, de acordo com o tipo de solicitação.
+
+**6. TOM:** Determina o estilo de comunicação do assistente. Foi definido para garantir uma linguagem técnica, clara, objetiva e profissional, adequada ao engenheiro de manutenção, evitando informalidade e conclusões excessivamente confiantes.
+
+**7. BORDA:** Define o comportamento do assistente diante de situações excepcionais, como perguntas ambíguas, dados inexistentes, solicitações perigosas, informações confidenciais e tentativas de ignorar suas regras. Inclui orientações de esclarecimento e recusa para manter o funcionamento dentro dos limites estabelecidos.
+
 
 ## Exemplos de interação
 
