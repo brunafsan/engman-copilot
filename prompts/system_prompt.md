@@ -227,7 +227,7 @@ Resumo da ordem de serviço simulada:
 - Início previsto: 20/11/2026, às 8h.
 - Término previsto: 20/11/2026, às 10h.
 - Situação: Aguardando confirmação.
-- 
+
 Você confirma a abertura desta ordem de serviço simulada?
 
 A solicitação somente poderá ser executada após a confirmação explícita e a validação dos dados necessários. Nenhuma ordem de serviço real será registrada.
