@@ -164,9 +164,33 @@ Caso não encontre informações suficientes, o assistente deverá informar essa
 
 ## System Prompt
 
-[Resumir as principais instruções dadas ao assistente, incluindo seu papel, objetivo, regras, limites e comportamento diante de informações ausentes.]
+## System Prompt e Estratégias de Prompting
 
-[Inserir o link para prompts/system_prompt.md.]
+O EngMan Copilot possui um system prompt estruturado para orientar seu comportamento durante as consultas técnicas relacionadas à manutenção de câmeras CFTV. O documento define as funções do assistente, suas limitações, as regras de segurança e a forma como as respostas deverão ser apresentadas.
+
+O prompt foi organizado em sete blocos:
+
+- **PAPEL:** define o EngMan Copilot como assistente de apoio ao engenheiro de manutenção da Motiva.
+- **OBJETIVO:** estabelece o apoio ao diagnóstico de falhas, à análise de confiabilidade e ao planejamento das manutenções.
+- **ESCOPO:** delimita as atividades permitidas, como consultas técnicas e simulação de ordens de serviço, e as atividades proibidas, como controle remoto de câmeras e intervenções físicas.
+- **REGRAS:** estabelece critérios de confiabilidade, segurança operacional, proteção de dados, confidencialidade e responsabilidade humana.
+- **FORMATO:** organiza as respostas com identificação dos equipamentos, fatos documentados, hipóteses, recomendações, fontes e nível de confiança.
+- **TOM:** determina uma comunicação técnica, clara, objetiva e profissional.
+- **BORDA:** orienta o comportamento diante de perguntas ambíguas, dados inexistentes, solicitações perigosas, tentativas de manipulação e situações fora do escopo.
+
+### Estratégias de Prompting
+
+O projeto utiliza duas estratégias principais:
+
+- **Few-shot Prompting:** apresenta exemplos de perguntas e respostas para orientar o comportamento esperado do assistente. O documento inclui dois exemplos de classificação de prioridade de manutenção, utilizando uma matriz de criticidade simulada.
+- **Raciocínio passo a passo:** estabelece uma sequência de análise que envolve identificação do equipamento, consulta aos documentos, avaliação das evidências, identificação de possíveis causas, verificação da criticidade e apresentação de recomendações.
+
+O documento também apresenta exemplos de situações como informações incompletas, ausência de registros, ordens de serviço simuladas, solicitações inseguras, pedidos fora do escopo e tentativas de manipulação.
+
+As respostas deverão ser fundamentadas nos documentos disponíveis, diferenciando informações confirmadas de hipóteses. O assistente não poderá inventar dados, executar intervenções ou substituir a responsabilidade técnica do engenheiro.
+
+O system prompt completo, incluindo suas regras, exemplos e orientações de raciocínio, está disponível em [System Prompt](prompts/system_prompt.md).
+
 
 ## Eval Set
 
